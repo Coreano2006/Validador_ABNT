@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Validador ABNT com IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body id="modo-dark">
+    <header>
+        <h1>Validador de Normas ABNT</h1>
+        <p class="frase-efeito">Deixe seus textos impecáveis com o poder da IA</p>
+        <button id="toggle-dark">Modo Escuro</button>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Validador ABNT</h2>
+            <form id="form-validar" method="post" action="/validar" onsubmit="return false;">
+            <textarea id="campo-texto" name="texto" placeholder="Digite ou cole seu texto aqui..."
+            required>{{ texto if texto else '' }}</textarea><div style="width:100%; display:flex; justify-content:center;">
+            <button id="validarBtn" type="button">Validar</button>
+            </div>
+        </form>
+        <section id="resultadoArea" class="resultado" style="display:none; width:100%;"><h3>Resultado:</h3>
+            <pre id="resultadoText" style="white-space: pre-wrap;"></pre>
+            <div style="text-align:center; margin-top:10px;"><button id="copyBtn" type="button">copiar texto Formatado</button>
+            </div>
+        </section>
+    </div>    
+    </main>
+
+    <footer>
+        <p>Feito por Wesley Gabriel, Pedro Lucas, Francisco Emerson e Caique Wesley • Contato: 89 99441-7785</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

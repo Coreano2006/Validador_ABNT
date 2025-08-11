@@ -1,0 +1,182 @@
+body {
+    font-family: 'Segoe UI', Tohoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+body.dark-mode {
+    --background: #121212;
+    --text-color: #e0e0e0;
+    --card: #1e1e1e;
+}
+body.dark-mode h1 {
+    color: #c084fc;
+    text-shadow: 1px 1px 2px #00000088;
+}
+body.dark-mode textarea {
+    border: 1px solid #444;
+}
+:root {
+  --background: #f2f2f2;        /* Fundo claro padrão */
+  --text-color: #333333;        /* Cor do texto principal */
+  --primary: #001f3f;           /* Azul escuro (títulos, destaques) */
+  --accent: #8000ff;            /* Roxo forte (botões, links) */
+  --accent-soft: #c49cfc;       /* Roxo claro (hover, detalhes) */
+  --card: #ffffff;              /* Fundo de cards e caixas */
+}
+
+/* =====================
+   🌙 MODO ESCURO (ativo ao clicar no botão)
+   ===================== */
+body.dark-mode {
+  --background: #121212;
+  --text-color: #e0e0e0;
+  --card: #1e1e1e;
+}
+
+/* =====================
+   📦 CONTAINER PRINCIPAL
+   ===================== */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* =====================
+   🎞 ANIMAÇÃO DE ENTRADA
+   ===================== */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* =====================
+   📛 TÍTULOS E FRASE DE EFEITO
+   ===================== */
+h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.tagline {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* =====================
+   🔘 BOTÕES
+   ===================== */
+button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-soft);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(128, 0, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(128, 0, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(128, 0, 255, 0);
+  }
+}
+
+/* =====================
+   🧾 RESULTADO
+   ===================== */
+.resultado {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: var(--card);
+  border-left: 5px solid var(--accent);
+  border-radius: 5px;
+}
+
+/* =====================
+   🦶 RODAPÉ
+   ===================== */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+textarea {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    height: 250px;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #333;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #4B0082;
+}
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+:root {
+    --fundo-caixa: #ffffff;
+    --texto-caixa: #000000;
+}
+.dark-mode {
+    --fundo-caixa: #ffffff;
+    --texto-caixa: #8A2BE2;
+}
+
+[data-theme="dark"] {
+    --background: #121212;
+    --text-color: #fff;
+    --card: #1e1e1e;
+    --textarea-bg: #6e3bbd;
+}
