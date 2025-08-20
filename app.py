@@ -18,6 +18,7 @@ if not COHERE_API_KEY:
 # Inicializa o cliente Cohere
 co = cohere.Client(COHERE_API_KEY)
 
+
 @app.route("/validar", methods=["POST"])
 def validar_texto():
     try:
@@ -31,19 +32,21 @@ def validar_texto():
         texto = (texto or "").strip()
         if not texto:
             return jsonify({"erro": "Nenhum texto fornecido."}), 400
-        prompt = f""" Valide o seguinte texto segundo as normas ABNT, corrija os erros e retorne:
-        1. O texto corrigido (sem tags HTML, so texto simples)
-        2. Algunhas observaçoes sobre os erros encontrados
+
+        prompt = f""" Você é um especialista em ABNT e deve responder sempre em português do Brasil. 
+        Valide o seguinte texto segundo as normas ABNT, corrija os erros e retorne:
+        1. O texto corrigido (sem tags HTML, só texto simples)
+        2. Algumas observações sobre os erros encontrados
         
         Texto:
         {texto}
         
-        Responda apenas com texto corrigido e as observaçoes, separados claramente.
+        Responda apenas em português com o texto corrigido e as observações, separados claramente.
         """
 
         # Chamada à Cohere
-        resposta = co.generate (
-        model="command-xlarge",
+        resposta = co.generate(
+            model="command-xlarge",
             prompt=prompt,
             max_tokens=450,
             temperature=0.2
@@ -57,4 +60,6 @@ def validar_texto():
         return jsonify({"erro": str(e)}), 500
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
     app.run(debug=True)
